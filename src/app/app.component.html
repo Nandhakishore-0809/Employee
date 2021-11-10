@@ -6,10 +6,11 @@
 
     <input
       type="text"
-      class="form-control is-invalid"
+      class="form-control"
       #name="ngModel"
       id="name"
       name="name"
+      [class.is-invalid]="name.invalid && name.touched"
       required
       ngModel
     />
@@ -19,8 +20,10 @@
     <input
       type="text"
       class="form-control"
+      #age="ngModel"
       id="age"
       name="age"
+      [class.is-invalid]="age.invalid && age.touched"
       required
       ngModel
     />
@@ -58,8 +61,10 @@
     <input
       type="text"
       class="form-control"
+      #dob="ngModel"
       id="dob"
       name="dob"
+      [class.is-invalid]="dob.invalid && dob.touched"
       ngModel
       required
     />
@@ -70,7 +75,10 @@
       type="text"
       class="form-control"
       id="email"
+      #email="ngModel"
+      pattern="([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+)\.([a-z]{2,20})"
       name="email"
+      [class.is-invalid]="email.invalid && email.touched"
       ngModel
       required
     />
@@ -80,7 +88,10 @@
     <input
       type="text"
       class="form-control"
+      #phoneNumber="ngModel"
       id="phoneNumber"
+      pattern="[6789][0-9]{9}"
+      [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched"
       name="phoneNumber"
       ngModel
       required
