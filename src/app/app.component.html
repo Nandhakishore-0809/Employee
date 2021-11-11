@@ -14,6 +14,9 @@
       required
       ngModel
     />
+    <small class="text-danger" [class.d-none]="name.valid || name.untouched"
+      >Name is Required</small
+    >
   </div>
   <div class="form-group">
     <label for="age" class="form-label">Age</label>
@@ -27,6 +30,9 @@
       required
       ngModel
     />
+    <small class="text-danger" [class.d-none]="age.valid || age.untouched"
+      >Age is Required</small
+    >
   </div>
   <div class="form-check">
     <label for="gender" class="form-label">Gender</label><br />
@@ -35,7 +41,9 @@
       type="radio"
       name="gender"
       id="gender1"
+      #gender="ngModel"
       value="Male"
+      required
       ngModel
     />
     <label class="form-check-label" for="gender1"> Male </label><br />
@@ -44,6 +52,8 @@
       type="radio"
       name="gender"
       id="gender2"
+      #gender="ngModel"
+      required
       ngModel
       value="Female"
     />
@@ -67,6 +77,9 @@
       ngModel
       required
     />
+    <small class="text-danger" [class.d-none]="dob.valid || dob.untouched"
+      >Date of Birth is Required</small
+    >
   </div>
   <div class="form-group">
     <label for="email" class="form-label">Email</label>
@@ -81,6 +94,9 @@
       ngModel
       required
     />
+    <small class="text-danger" [class.d-none]="email.valid || email.untouched"
+      >Email is Required</small
+    >
   </div>
   <div class="form-group">
     <label for="phoneNumber" class="form-label">Phone Number</label>
@@ -95,10 +111,20 @@
       ngModel
       required
     />
+    <small
+      class="text-danger"
+      [class.d-none]="phoneNumber.valid || phoneNumber.untouched"
+      >PhoneNumber is Required</small
+    >
   </div>
   <div class="form-group">
     <label for="comments" class="form-label">Comments</label>
     <textarea class="form-control" rows="1" name="comments" ngModel></textarea>
   </div>
-  <input type="Submit" value="Submit" class="btn btn-primary" />
+  <input
+    type="Submit"
+    [disabled]="employeeForm.form.invalid"
+    value="Submit"
+    class="btn btn-primary"
+  />
 </form>
